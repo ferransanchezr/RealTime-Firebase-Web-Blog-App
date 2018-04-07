@@ -1,0 +1,61 @@
+<html>
+<head>
+  <title>main</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  <style media="screen">
+      body { background: #888; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: #ECEFF1; max-width: 720px; margin: 0px auto 16px; padding: 32px 24px 16px; border-radius: 3px; }
+      .container {background-color: black;}
+      #message h3 { color: #888; font-weight: normal; font-size: 16px; margin: 16px 0 12px; }
+      #message h2 { color: #934147; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: #252930; margin: 0 0 16px;}
+      #message p { color: #252930; line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+</head>
+<body>
+  <div id="message">
+    <h2>Giriş Yapıldı</h2>
+    Mod Değiştir-->
+    <input type="button" id="setBtn" onclick="setMode()" value="Düzenleme Modu"></input>
+    <div id="setTool" style="display: none;">
+      <select id="setMainCat" onchange="listNames()">
+        <option value="" selected disabled hidden>Kategori seç</option>
+        <option value="0">cat1</option>
+        <option value="1">cat2</option>
+      </select>
+      <select id="setSubCat" onchange="fillArea()">
+      </select>
+    </div><br>
+
+    <div id="addTool" style="display: block;">
+      <select id="mainCat">
+        <option value="" selected disabled hidden>Kategori seç</option>
+        <option value="0">cat1</option>
+        <option value="1">cat2</option>
+      </select><br>
+    </div>
+    <input id="subCatName" type="text" name="FirstName" placeholder="İçerik İsmi"><br>
+    <input id="subCatTitle" type="text" name="LastName" placeholder="İçerik Başlığı"><br>
+    <div id="editor"></div>
+    <button id="sendBtn" onclick="sendBlog()" style="display: block;">Gönder/Kayıt</button>
+    <button id="updateBtn" onclick="updateBlog()" style="display: none;">Düzelt</button>
+    <button id="deleteBtn" onclick="deleteBlog()" style="display: none;">Sil</button>
+    <button onclick="mainApp.logOut()">Çıkış Yapmak için Buraya Tıkla</button>
+  </div>
+
+  <script src="firebase.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
