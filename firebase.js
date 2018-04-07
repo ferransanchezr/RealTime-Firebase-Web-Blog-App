@@ -24,6 +24,7 @@ function sendBlog(){//düzenleme modu için ekleme yap
   var database = firebase.database();
   var ref = database.ref('allBlogDatas');
   index = document.getElementById('mainCat').value;
+  var content = {
         subCategoryContent: delta,
         subCategoryName : document.getElementById('subCatName').value,
         subCategoryTitle : document.getElementById('subCatTitle').value
